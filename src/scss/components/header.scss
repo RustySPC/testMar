@@ -1,0 +1,140 @@
+//====================================================================================================
+.header {
+	background: transparent;
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100%;
+	// background: #272727;
+	transition: all 0.3s ease 0s;
+	&._header-scroll {
+		background: #131313;
+		padding: rem(14) 0px;
+	}
+	padding: rem(28) 0px;
+	// .header__container
+
+	&__container {
+	}
+
+	// .header__menu
+
+	&__menu {
+	}
+}
+.menu {
+	display: flex;
+	align-items: center;
+	// .menu__icon
+
+	&__icon {
+	}
+
+	// .menu__logo
+
+	&__logo {
+	}
+
+	// .menu__body
+
+	&__body {
+		flex: 1 1 auto;
+	}
+
+	// .menu__list
+
+	&__list {
+		display: flex;
+		align-items: center;
+		margin: 0px rem(76);
+		text-transform: uppercase;
+		@media (max-width: em(1800)) {
+			margin: 0px rem(26);
+		}
+		li {
+			&:not(:last-child) {
+				margin-right: rem(42);
+				@media (max-width: em(1800)) {
+					margin-right: rem(24);
+				}
+			}
+		}
+	}
+
+	// .menu__item
+
+	&__item {
+	}
+
+	// .menu__link
+
+	&__link {
+	}
+
+	// .menu__btns
+
+	&__btns {
+		display: flex;
+		align-items: center;
+	}
+
+	// .menu__btn
+
+	&__btn {
+		&:not(:last-child) {
+			margin-right: rem(12);
+		}
+	}
+}
+.icon-menu {
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+		}
+		&::before {
+			top: 0px;
+		}
+		&::after {
+			bottom: 0px;
+		}
+		span {
+			top: calc(50% - 1px);
+		}
+		.menu-open & {
+			span {
+				transform: scale(0);
+			}
+			&::before {
+				transform: rotate(-45deg);
+				top: calc(50% - 1px);
+			}
+			&::after {
+				transform: rotate(45deg);
+				bottom: calc(50% - 1px);
+			}
+		}
+	}
+}
