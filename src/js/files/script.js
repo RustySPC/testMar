@@ -23,20 +23,21 @@ if (loadMore) {
 		//    access_token: SECRET_TOKEN,
 		//  },
 		}).then(resp => {
-			if (counter >= 20) {
-			loadMore.style.display = 'none'
-		}
-		console.log(counter);
-		const cardWrapper = document.querySelector('.cards__row')
-		const maket = document.querySelector('.cards__column').innerHTML;
-		for (let index = counter; index < counter + 5; index++) {
-			const element = resp.data[index];
-			let item = sample(element) 
-			cardWrapper.innerHTML = cardWrapper.innerHTML +  item;
+			if (counter <= 20 && resp.data[counter + 5]!= undefined) {
+				console.log(counter);
+				const cardWrapper = document.querySelector('.cards__row')
+				const maket = document.querySelector('.cards__column').innerHTML;
+				for (let index = counter; index < counter + 5; index++) {
+					const element = resp.data[index];
+					let item = sample(element) 
+					cardWrapper.innerHTML = cardWrapper.innerHTML +  item;
+					counter = counter + 5;
 
+				}
+			} else {
+				loadMore.style.display = 'none'
+				
 		}
-	counter = counter + 5;
-
 	});
 	})
 
