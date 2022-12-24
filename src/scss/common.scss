@@ -8,6 +8,7 @@
 		align-items: center;
 		position: relative;
 		padding: rem(20) rem(36);
+
 		&:hover {
 			&::before {
 				opacity: 1;
@@ -41,7 +42,6 @@
 }
 
 .btn-yellow {
-	padding-right: rem(10);
 	position: relative;
 	padding: 0 rem(17) 0 rem(6);
 	display: inline-flex;
@@ -57,6 +57,12 @@
 		font-weight: 700;
 		color: #ffffff;
 		z-index: 1;
+		@media (max-width: em(1449.98)) {
+			padding: rem(21) rem(48);
+		}
+		@media (max-width: em(991.98)) {
+			padding: rem(21) rem(38);
+		}
 		&:hover {
 			&::after {
 				content: "";
@@ -107,4 +113,13 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	line-height: math.div(51, 42);
+	@media (max-width: $tablet) {
+		font-size: rem(32);
+	}
+	@media (max-width: $mobile) {
+		font-size: rem(24);
+		p {
+			display: inline-block;
+		}
+	}
 }

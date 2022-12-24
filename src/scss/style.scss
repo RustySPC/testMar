@@ -57,6 +57,10 @@ body {
 		overflow: hidden;
 		touch-action: none;
 	}
+	&.fancybox-active {
+		overflow: hidden;
+		touch-action: none;
+	}
 	// Сайт загружен
 	.loaded & {
 	}
@@ -71,6 +75,9 @@ body {
 	> main {
 		flex: 1 1 auto;
 		padding-top: rem(116);
+		@media (max-width: $mobile) {
+			padding-top: rem(68);
+		}
 	}
 	// Фикс для слайдеров
 	> * {
@@ -100,8 +107,11 @@ body {
 			@media (max-width: em(1799.98)) {
 				padding: 0 rem(50);
 			}
+			@media (max-width: em(1449.98)) {
+				padding: 0 rem(25);
+			}
 			@media (max-width: $mobile) {
-				max-width: none;
+				max-width: calc(100% - rem(30));
 				@if ($containerPadding>0 and $maxWidthContainer>0) {
 					padding: 0 rem(15);
 				}
@@ -135,6 +145,24 @@ body {
 	}
 }
 
+html {
+	background: #131313;
+
+	&::-webkit-scrollbar {
+		border-radius: 5px;
+		width: 6px;
+	}
+	scroll-behavior: smooth;
+	&::-webkit-scrollbar-track {
+		border-radius: 5px;
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #c2ab81;
+		border-radius: 5px;
+	}
+}
+
 // Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов
 // Для подключения/отключения конкретных стилей смотри base.scss
 @import "base";
@@ -145,6 +173,7 @@ body {
 // Подключение стилей отдельных блоков
 @import "components/header";
 @import "components/footer";
+@import "components/popup";
 
 // Подключение стилей отдельных страниц
 @import "components/home";

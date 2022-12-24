@@ -1,3 +1,20 @@
+<div class="preloader" style="position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	background: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	transition: all 0.5s ease 0s;
+	height: 100%;">
+	<div class="preloader__row">
+		<div class="preloader__item">
+			<img src="../img/load.gif" alt="">
+		</div>
+	</div>
+</div>
 <header class="header">
 	<div class="header__container">
 		<div class="header__menu menu">
@@ -10,57 +27,57 @@
 			<nav class="menu__body">
 				<ul class="menu__list">
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="УСЛУГИ">
 							УСЛУГИ
 						</a>
 
 					</li>
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="АБОНЕМЕНТЫ">
 							АБОНЕМЕНТЫ
 						</a>
 
 					</li>
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="ПОЧЕМУ МЫ">
 							ПОЧЕМУ МЫ
 						</a>
 
 					</li>
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="ОБОРУДОВАНИЕ">
 							ОБОРУДОВАНИЕ
 						</a>
 
 					</li>
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="АКЦИИ">
 							АКЦИИ
 						</a>
 
 					</li>
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="FAQ">
 							FAQ
 						</a>
 
 					</li>
 					<li class="menu__item">
-						<a href="" class="menu__link">
+						<a href="" class="menu__link" data-text="КОНТАКТЫ">
 							КОНТАКТЫ
 						</a>
 
 					</li>
 				</ul>
 			</nav>
-			<div class="menu__btns">
+			<div class="menu__btns" data-da=".menu__body,767,last">
 				<div class="menu__btn btn-dark">
 					<a href="" class="btn-dark__link">
 						<span><img data-src="@img/phone.svg" alt=""></span>
 					</a>
 				</div>
 				<div class="menu__btn btn-yellow">
-					<a href="" class="btn-yellow__link">ОСТАВИТЬ ЗАЯВКУ </a>
+					<a href="#menu" data-fancybox class="btn-yellow__link">ОСТАВИТЬ ЗАЯВКУ </a>
 					<span class="btn-yellow__decor"></span>
 				</div>
 
