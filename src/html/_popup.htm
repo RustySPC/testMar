@@ -1,47 +1,51 @@
-<section class="modal" id="menu" style="display: none;">
-	<div class="modal__row">
-		<div class="modal__close btn-dark">
-			<button type="button" class="btn-dark__link" onclick="$.fancybox.close();">
-				<span><img data-src="@img/close.svg" alt=""></span>
-			</button>
-		</div>
-		<div class="modal__image">
-			<img data-src="@img/moon.png" alt="">
-		</div>
-		<div class="modal__content">
-			<div class="modal__title _title">Оставьте заявку</div>
-			<div class="modal__info	">Оставьте заявку и наш менеджер свяжется с вами
-				в течение 10 -15 минут</div>
-			<form action="#" class="modal__form">
-				<div class="modal__item">
-					<span class="modal__item-name">Ваше имя*</span>
-					<input autocomplete="off" type="text" name="form[]" placeholder="" class="input" required>
+<div id="menu" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<div class="popup__row">
+				<div class="popup__close btn-black">
+					<button type="button" class="btn__link" data-close>
+						<span><img data-src="@img/close.svg" alt=""></span>
+					</button>
 				</div>
-				<div class="modal__item">
-					<span class="modal__item-name">E-mail*</span>
+				<div class="popup__image">
+					<img data-src="@img/moon.png" alt="">
+				</div>
+				<div class="popup__inner">
+					<div class="popup__title _title">Оставьте заявку</div>
+					<div class="popup__info	">Оставьте заявку и наш менеджер свяжется с вами
+						в течение 10 -15 минут</div>
+					<form action="#" class="popup__form">
+						<div class="popup__item">
+							<span class="popup__item-name">Ваше имя*</span>
+							<input autocomplete="off" type="text" name="form[]" placeholder="" class="input" data-required data-validate>
+						</div>
+						<div class="popup__item">
+							<span class="popup__item-name">E-mail*</span>
 
-					<input autocomplete="off" type="email" name="form[]" placeholder="" class="input" required>
-				</div>
-				<div class="modal__item">
-					<span class="modal__item-name">+7(___)</span>
-					<input autocomplete="off" type="tel" name="form[]" placeholder="" class="input tel">
-				</div>
-				<div class="modal__item modal-textarea">
-					<span class="modal__item-name">Ваш вопрос*</span>
-					<textarea autocomplete="off" name="form[]" placeholder="" class="input"></textarea>
-				</div>
-				<div class="modal__bottom">
-					<div class="modal__btn btn-yellow">
-						<button type="submit" class="btn-yellow__link">ОСТАВИТЬ ЗАЯВКУ</button>
-						<span class="btn-yellow__decor"></span>
-					</div>
-					<div class="modal__terms">
-						<p>Нажимая на кнопку “Оставить заявку” вы соглашаетесь</p>
-						<a href="#">с “Пользовательским соглашением”</a>
-					</div>
-				</div>
+							<input autocomplete="off" type="text" name="form[]" placeholder="" class="input" data-required="email" data-validate>
+						</div>
+						<div class="popup__item">
+							<span class="popup__item-name">+7(___)</span>
+							<input autocomplete="off" type="tel" name="form[]" placeholder="" data-required data-phone-pattern class="input tel">
+						</div>
+						<div class="popup__item popup-textarea">
+							<span class="popup__item-name">Ваш вопрос*</span>
+							<textarea autocomplete="off" name="form[]" placeholder="" class="input"></textarea>
+						</div>
+						<div class="popup__bottom">
+							<div class="popup__btn btn btn-yellow">
+								<button type="submit" class="btn__link">ОСТАВИТЬ ЗАЯВКУ</button>
+							</div>
+							<div class="popup__terms">
+								<p>Нажимая на кнопку “Оставить заявку” вы соглашаетесь
+									<a href="#">с “Пользовательским соглашением”</a>
+								</p>
+							</div>
+						</div>
 
-			</form>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
-</section>
+</div>

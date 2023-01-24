@@ -2,7 +2,7 @@
 // Подключение списка активных модулей
 import { flsModules } from "../modules.js";
 // Вспомогательные функции
-import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../functions.js";
+import {FLS } from "../functions.js";
 // Модуль прокрутки к блоку
 import { gotoBlock } from "../scroll/gotoblock.js";
 //================================================================================================================================================================================================================================================================================================================================
@@ -39,7 +39,6 @@ export function formFieldsInit() {
 			}
 			targetElement.classList.add('_form-focus');
 			targetElement.parentElement.classList.add('_form-focus');
-
 			formValidate.removeError(targetElement);
 		}
 	});
@@ -49,8 +48,10 @@ export function formFieldsInit() {
 			if (targetElement.dataset.placeholder) {
 				targetElement.placeholder = targetElement.dataset.placeholder;
 			}
-			targetElement.classList.remove('_form-focus');
+			if (targetElement.value == '') {
 			targetElement.parentElement.classList.remove('_form-focus');
+					targetElement.classList.remove('_form-focus');
+			}
 
 			// Моментальная валидация
 			if (targetElement.hasAttribute('data-validate')) {
@@ -67,6 +68,7 @@ export let formValidate = {
 		if (formRequiredItems.length) {
 			formRequiredItems.forEach(formRequiredItem => {
 				if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
+				
 					error += this.validateInput(formRequiredItem);
 				}
 			});
@@ -146,9 +148,6 @@ export let formValidate = {
 }
 /* Отправка форм */
 export function formSubmit(validate) {
-	if (flsModules.popup) {
-		flsModules.popup.open('some');
-	}
 	const forms = document.forms;
 	if (forms.length) {
 		for (const form of forms) {
@@ -350,4 +349,36 @@ export function formRating() {
 			}
 		}
 	}
+}
+
+/* Валидация телефона */
+
+export function phoneValidate() {
+    const eventCallback = function (e) {
+        let el = e.target,
+        clearVal = el.dataset.phoneClear,
+        pattern = el.dataset.phonePattern,
+        matrix_def = "+7(___) ___-__-__",
+        matrix = pattern ? pattern : matrix_def,
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = e.target.value.replace(/\D/g, "");
+        if (clearVal !== 'false' && e.type === 'blur') {
+            if (val.length < matrix.match(/([\_\d])/g).length) {
+					e.target.classList.add('_form-error');
+					e.target.parentElement.classList.add('_form-error');
+                return;
+            }
+        }
+        if (def.length >= val.length) val = def;
+        e.target.value = matrix.replace(/./g, function (a) {
+            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+        });
+    }
+    const phone_inputs = document.querySelectorAll('[data-phone-pattern]');
+    for (let elem of phone_inputs) {
+        for (let ev of ['input', 'blur', 'focus']) {
+			  elem.addEventListener(ev, eventCallback);
+        }
+    }
 }

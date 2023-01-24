@@ -4923,11 +4923,7 @@
                   .querySelector(".home__pagination")
                   .dataset.pagg.split(",");
                 return void 0 !== n[e]
-                  ? '<li class="' +
-                      t +
-                      ' pagination__item">' +
-                      (null != n[e] ? n[e] : "") +
-                      "</li>"
+                  ? `<li class="${t} pagination__item">${n[e]}</li>`
                   : "";
               },
             },
@@ -7000,8 +6996,7 @@
             )
               return (
                 e.target.classList.add("_form-error"),
-                e.target.parentElement.classList.add("_form-error"),
-                void console.log(e.target)
+                void e.target.parentElement.classList.add("_form-error")
               );
             o.length >= a.length && (a = o),
               (e.target.value = i.replace(/./g, function (e) {

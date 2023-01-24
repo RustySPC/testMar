@@ -30,6 +30,7 @@
 .menu {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 
 	// .menu__icon
 
@@ -54,6 +55,10 @@
 		img {
 			max-width: 100%;
 			max-height: 100%;
+			width: rem(157);
+			@media (max-width: $mobile) {
+				width: auto;
+			}
 		}
 	}
 	&.menu-open {
@@ -65,7 +70,6 @@
 	// .menu__body
 
 	&__body {
-		flex: 1 1 auto;
 		@media (max-width: em(1279.98)) {
 			position: fixed;
 			top: 0;
@@ -122,16 +126,8 @@
 					background: #b1b1b1;
 					-webkit-background-clip: text;
 					color: #131313;
+					text-shadow: 0px 0 #808080, 1px 1px #808080, 1px 0 #808080, 0 -1px #808080;
 					position: relative;
-					&::before {
-						content: attr(data-text);
-						position: absolute;
-						left: 0;
-						right: 0;
-						padding-left: 0;
-						-webkit-text-stroke: 1px #808080;
-						z-index: -1;
-					}
 				}
 
 				color: transparent;
@@ -205,7 +201,7 @@
 			&:not(:last-child) {
 				margin-bottom: rem(6);
 			}
-			.btn-dark__link,
+			.btn__link,
 			.btn-yellow__link {
 				display: flex;
 				width: 100%;
@@ -259,19 +255,21 @@
 		span {
 			top: calc(50% - 2px);
 		}
-		// .menu-open & {
-		// 	span {
-		// 		transform: scale(0);
-		// 	}
-		// 	&::before {
-		// 		transform: rotate(-45deg);
-		// 		top: calc(50% - 1px);
-		// 	}
-		// 	&::after {
-		// 		transform: rotate(45deg);
-		// 		bottom: calc(50% - 1px);
-		// 	}
-		// }
+		.menu-open & {
+			span {
+				width: rem(22);
+			}
+			&::before {
+				transform: rotate(45deg);
+				top: calc(50% + 2px);
+				width: rem(10);
+			}
+			&::after {
+				transform: rotate(-45deg);
+				bottom: calc(50% + 2px);
+				width: rem(10);
+			}
+		}
 	}
 }
 .loaded .preloader {

@@ -373,6 +373,12 @@ textarea.input {
 .menu__logo img {
   max-width: 100%;
   max-height: 100%;
+  width: 9.8125rem;
+}
+@media (max-width: 47.99875em) {
+  .menu__logo img {
+    width: auto;
+  }
 }
 .menu.menu-open .menu__body {
   transform: translate(0);
@@ -591,20 +597,6 @@ main {
   transition: all 0.5s ease-in-out 0s;
   height: 100%;
 }
-.fancybox-content {
-  overflow: visible !important;
-  background: transparent !important;
-  padding: 0 !important;
-}
-
-.fancybox-bg {
-  background: rgba(19, 19, 19, 0.9176470588) !important;
-}
-
-.fancybox-button {
-  display: none !important;
-}
-
 .popup__row {
   display: flex;
   overflow: hidden;
@@ -613,6 +605,7 @@ main {
   max-width: 100%;
   position: relative;
   width: 100%;
+  padding: 30px 20px;
 }
 @media (min-width: 99.99875em) {
   .popup__btn {
@@ -811,28 +804,27 @@ body.popup-show::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0rem 6.25rem !important;
-}
-@media (max-width: 87.49875em) {
-  .popup__wrapper {
-    padding: 0rem 3.125rem !important;
-  }
-}
-@media (max-width: 47.99875em) {
-  .popup__wrapper {
-    padding: 0rem 0.9375rem !important;
-  }
 }
 
 .popup__content {
   visibility: hidden;
   transform: scale(0);
   transition: transform 0.3s ease 0s;
-  padding: 20px;
   width: 100%;
   max-width: 107.8125rem;
   border-radius: 20px;
   position: relative;
+  padding: 0rem 6.25rem !important;
+}
+@media (max-width: 87.49875em) {
+  .popup__content {
+    padding: 0rem 3.125rem !important;
+  }
+}
+@media (max-width: 47.99875em) {
+  .popup__content {
+    padding: 0rem 0.9375rem !important;
+  }
 }
 .popup__content::before {
   content: "";
@@ -881,7 +873,7 @@ body.popup-show::after {
 }
 @media (max-width: 47.99875em) {
   .home__slide::before {
-    height: 11%;
+    height: 10%;
   }
 }
 .home__background {
@@ -894,6 +886,7 @@ body.popup-show::after {
 .home__background img {
   width: 100%;
   height: 100%;
+  background: transparent;
   object-fit: cover;
 }
 .home__container {
@@ -1020,8 +1013,10 @@ body.popup-show::after {
 }
 .cards__image {
   width: 100%;
+  height: 12.5rem;
 }
 .cards__image img {
+  background: var(--dark);
   width: 100%;
 }
 .cards__content {

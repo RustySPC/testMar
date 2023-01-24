@@ -51,38 +51,38 @@ $mobileSmall: em(479.98); // Телефоны S
 @import "base/null";
 
 body {
-	background: #131313;
-	// Скролл заблокирован
-	.lock & {
-		overflow: hidden;
-		touch-action: none;
-	}
-	&.fancybox-active {
-		overflow: hidden;
-		touch-action: none;
-	}
-	// Сайт загружен
-	.loaded & {
-	}
+   background: #131313;
+   // Скролл заблокирован
+   .lock & {
+      overflow: hidden;
+      touch-action: none;
+   }
+   &.fancybox-active {
+      overflow: hidden;
+      touch-action: none;
+   }
+   // Сайт загружен
+   .loaded & {
+   }
 }
 // Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	// Прижимаем footer
-	> main {
-		flex: 1 1 auto;
-		padding-top: rem(116);
-		@media (max-width: $mobile) {
-			padding-top: rem(68);
-		}
-	}
-	// Фикс для слайдеров
-	> * {
-		min-width: 0;
-	}
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   // Прижимаем footer
+   > main {
+      flex: 1 1 auto;
+      padding-top: rem(116);
+      @media (max-width: $mobile) {
+         padding-top: rem(68);
+      }
+   }
+   // Фикс для слайдеров
+   > * {
+      min-width: 0;
+   }
 }
 
 // Ограничивающий контейнер ======================================================================================================================================================================================================================
@@ -94,73 +94,73 @@ body {
 Снипет (HTML): cnt
 */
 @if ($responsiveType==1) {
-	// Отзывчивая
-	[class*="__container"] {
-		@if ($maxWidthContainer>0) {
-			max-width: rem($maxWidthContainer);
-			box-sizing: content-box;
-			margin: 0 auto;
-		}
-		@if ($containerPadding>0) {
-			padding: 0 rem(math.div($containerPadding, 2));
+   // Отзывчивая
+   [class*="__container"] {
+      @if ($maxWidthContainer>0) {
+         max-width: rem($maxWidthContainer);
+         box-sizing: content-box;
+         margin: 0 auto;
+      }
+      @if ($containerPadding>0) {
+         padding: 0 rem(math.div($containerPadding, 2));
 
-			@media (max-width: em(1799.98)) {
-				padding: 0 rem(50);
-			}
-			@media (max-width: em(1449.98)) {
-				padding: 0 rem(25);
-			}
-			@media (max-width: $mobile) {
-				max-width: calc(100% - rem(30));
-				@if ($containerPadding>0 and $maxWidthContainer>0) {
-					padding: 0 rem(15);
-				}
-			}
-		}
-	}
+         @media (max-width: em(1799.98)) {
+            padding: 0 rem(50);
+         }
+         @media (max-width: em(1449.98)) {
+            padding: 0 rem(25);
+         }
+         @media (max-width: $mobile) {
+            max-width: calc(100% - rem(30));
+            @if ($containerPadding>0 and $maxWidthContainer>0) {
+               padding: 0 rem(15);
+            }
+         }
+      }
+   }
 } @else {
-	// По брейк-поинтам
-	[class*="__container"] {
-		margin: 0 auto;
-		@if ($maxWidthContainer>0) {
-			max-width: rem($maxWidthContainer);
-			box-sizing: content-box;
-		} @else {
-			@if ($containerPadding>0) {
-				padding: 0 rem(math.div($containerPadding, 2));
-			}
-		}
-		@media (max-width: $pc) {
-			max-width: rem(970);
-		}
-		@media (max-width: $tablet) {
-			max-width: rem(750);
-		}
-		@media (max-width: $mobile) {
-			max-width: none;
-			@if ($containerPadding>0 and $maxWidthContainer>0) {
-				padding: 0 rem(math.div($containerPadding, 2));
-			}
-		}
-	}
+   // По брейк-поинтам
+   [class*="__container"] {
+      margin: 0 auto;
+      @if ($maxWidthContainer>0) {
+         max-width: rem($maxWidthContainer);
+         box-sizing: content-box;
+      } @else {
+         @if ($containerPadding>0) {
+            padding: 0 rem(math.div($containerPadding, 2));
+         }
+      }
+      @media (max-width: $pc) {
+         max-width: rem(970);
+      }
+      @media (max-width: $tablet) {
+         max-width: rem(750);
+      }
+      @media (max-width: $mobile) {
+         max-width: none;
+         @if ($containerPadding>0 and $maxWidthContainer>0) {
+            padding: 0 rem(math.div($containerPadding, 2));
+         }
+      }
+   }
 }
 
 html {
-	background: #131313;
+   background: #131313;
 
-	&::-webkit-scrollbar {
-		border-radius: 5px;
-		width: 6px;
-	}
-	scroll-behavior: smooth;
-	&::-webkit-scrollbar-track {
-		border-radius: 5px;
-		background: transparent;
-	}
-	&::-webkit-scrollbar-thumb {
-		background: #c2ab81;
-		border-radius: 5px;
-	}
+   &::-webkit-scrollbar {
+      border-radius: 5px;
+      width: 6px;
+   }
+   scroll-behavior: smooth;
+   &::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background: transparent;
+   }
+   &::-webkit-scrollbar-thumb {
+      background: var(--yellow);
+      border-radius: 5px;
+   }
 }
 
 // Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов

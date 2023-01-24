@@ -1,49 +1,6 @@
-.fancybox-content {
-	overflow: visible !important;
-	background: transparent !important;
-	padding: 0 !important;
-}
-.fancybox-bg {
-	background: #131313ea !important;
-}
-.fancybox-button {
-	display: none !important;
-}
 .fancybox-slide {
-	padding: rem(0) rem(100) !important;
-	@media (max-width: em(1399.98)) {
-		padding: rem(0) rem(50) !important;
-	}
-	@media (max-width: $mobile) {
-		padding: rem(0) rem(15) !important;
-	}
 }
-.modal {
-	width: rem(1725);
-	max-width: 100%;
-	padding: rem(76) rem(90);
-	position: relative;
-	z-index: 1;
-	@media (max-width: em(1279.79)) {
-		padding: rem(0) rem(35) rem(76);
-	}
-	@media (max-width: $mobile) {
-		padding: rem(0) rem(15) rem(76);
-	}
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: #131313;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		@media (min-width: $mobile) {
-			transform: skew(-5deg);
-		}
-	}
-
+.popup {
 	// .modal__row
 
 	&__row {
@@ -54,6 +11,7 @@
 		max-width: 100%;
 		position: relative;
 		width: 100%;
+		padding: 30px 20px;
 	}
 
 	// .modal__btn
@@ -86,9 +44,9 @@
 		}
 	}
 
-	// .modal__content
+	// .modal__inner
 
-	&__content {
+	&__inner {
 		margin-left: rem(30);
 		flex: 0 0 47%;
 		@media (max-width: em(1599.98)) {
@@ -137,6 +95,11 @@
 		position: absolute;
 		right: 3px;
 		top: 0;
+		z-index: 2;
+		outline: none !important;
+		* {
+			outline: none !important;
+		}
 		@media (max-width: em(1279.79)) {
 			top: rem(15);
 		}
@@ -150,10 +113,15 @@
 	&__item {
 		position: relative;
 		margin-bottom: rem(20);
-		&._focus {
-			.modal__item-name {
+		&._form-focus {
+			.popup__item-name {
 				font-size: 12px;
 				top: rem(15);
+			}
+		}
+		&._form-error {
+			.input {
+				border-color: red;
 			}
 		}
 		textarea.input {
@@ -197,6 +165,7 @@
 		}
 		a {
 			text-decoration: underline;
+			display: block;
 
 			&:hover {
 				text-decoration: none;
@@ -204,22 +173,83 @@
 		}
 	}
 }
-.btn-black {
-	// .btn-black__link
-
-	&__link {
-	}
+body::after {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.8s ease 0s;
+	pointer-events: none;
+	z-index: 149;
 }
-.input {
+body.popup-show::after {
+	opacity: 1;
 }
-.btn-yellow {
-	// .btn-yellow__link
-
-	&__link {
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	padding: 30px 10px;
+	transition: visibility 0.8s ease 0s;
+	visibility: hidden;
+	pointer-events: none;
+}
+.popup_show {
+	z-index: 150;
+	visibility: visible;
+	overflow: auto;
+	pointer-events: auto;
+}
+.popup_show .popup__content {
+	visibility: visible;
+	transform: scale(1);
+}
+.popup__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100%;
+	flex: 1 1 auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.popup__content {
+	visibility: hidden;
+	transform: scale(0);
+	transition: transform 0.3s ease 0s;
+	width: 100%;
+	max-width: rem(1725);
+	border-radius: 20px;
+	position: relative;
+	padding: rem(0) rem(100) !important;
+	@media (max-width: em(1399.98)) {
+		padding: rem(0) rem(50) !important;
 	}
-
-	// .btn-yellow__decor
-
-	&__decor {
+	@media (max-width: $mobile) {
+		padding: rem(0) rem(15) !important;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #131313;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		@media (min-width: $mobile) {
+			transform: skew(-5deg);
+		}
+	}
+	.lock & {
+		visibility: visible;
 	}
 }

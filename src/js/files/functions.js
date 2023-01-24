@@ -418,7 +418,7 @@ export function menuInit() {
 				document.documentElement.classList.toggle("menu-open");
 			}
 		});
-	};
+	}
 }
 export function menuOpen() {
 	bodyLock();
@@ -583,7 +583,7 @@ export function uniqArray(array) {
 export function indexInParent(parent, element) {
 	const array = Array.prototype.slice.call(parent.children);
 	return Array.prototype.indexOf.call(array, element);
-};
+}
 // Обработа медиа запросов из атрибутов 
 export function dataMediaQueries(array, dataSetValue) {
 	// Получение объектов с медиа запросами

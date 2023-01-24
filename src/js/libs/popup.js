@@ -6,8 +6,7 @@
 // data-youtube - Атрибут для кода youtube
 // Сниппет (HTML): pl
 
-// Подключение функционала "Чертогов Фрилансера"
-import { isMobile, bodyLockStatus, bodyLockToggle, FLS } from "../files/functions.js";
+import { bodyLockStatus, bodyLockToggle, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
 // Класс Popup

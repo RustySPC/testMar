@@ -1,5 +1,5 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "../files/functions.js";
+import {  _slideUp, _slideDown, _slideToggle, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 import { formValidate } from "../files/forms/forms.js";
 

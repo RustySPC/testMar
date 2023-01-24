@@ -1,14 +1,23 @@
 // Заголовки, общие БЄМ блоки и проче...
-.btn-dark {
+:root {
+	/* кастомные свойства палитры */
+	--gray: #808080;
+	--black: #171717;
+	--yellow: #c2ab81;
+	--darkYellow: rgb(182, 162, 122);
+
+	--white: #fff;
+}
+
+.btn-black {
 	padding: 0px rem(6);
 	display: inline-block;
-	&__link {
+	.btn__link {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
 		position: relative;
 		padding: rem(20) rem(36);
-
 		&:hover {
 			&::before {
 				opacity: 1;
@@ -45,8 +54,7 @@
 	position: relative;
 	padding: 0 rem(17) 0 rem(6);
 	display: inline-flex;
-
-	&__link {
+	.btn__link {
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -55,7 +63,6 @@
 		font-size: rem(12);
 		line-height: math.div(18, 12);
 		font-weight: 700;
-		color: #ffffff;
 		z-index: 1;
 		@media (max-width: em(1449.98)) {
 			padding: rem(21) rem(48);
@@ -64,10 +71,13 @@
 			padding: rem(21) rem(38);
 		}
 		&:hover {
+			&::before {
+				content: "";
+				background: var(--darkYellow);
+			}
 			&::after {
 				content: "";
-				width: 100%;
-				right: 0;
+				right: -8px;
 				left: auto;
 			}
 		}
@@ -76,7 +86,8 @@
 			transform: skew(-15deg);
 			position: absolute;
 			width: 100%;
-			background: #c2ab81;
+			background: var(--yellow);
+			transition: all 0.3s ease 0s;
 			top: 0;
 			left: 0;
 			pointer-events: none;
@@ -85,26 +96,15 @@
 		}
 		&::after {
 			content: "";
-			height: 100%;
-			width: rem(0);
-			transform: skew(-15deg);
-			background: radial-gradient(circle, rgba(202, 170, 109, 1) 35%, rgba(255, 255, 255, 0) 100%);
 			position: absolute;
+			width: rem(5);
+			background: #fff;
+			transform: skew(-15deg);
+			height: 100%;
+			right: -10px;
 			top: 0;
 			transition: all 0.3s ease 0s;
-			left: 0;
-			z-index: -1;
 		}
-	}
-
-	&__decor {
-		position: absolute;
-		width: rem(5);
-		background: #fff;
-		transform: skew(-15deg);
-		height: 100%;
-		right: 6px;
-		top: 0;
 	}
 }
 

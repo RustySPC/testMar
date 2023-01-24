@@ -1,5 +1,5 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile, uniqArray, FLS } from "../files/functions.js";
+import { uniqArray, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
 // Наблюдатель объектов [всевидещее око]

@@ -47,9 +47,6 @@ const config = {
 		filename: 'js/app.min.js',
 		publicPath: '/'
 	},
-	experiments: {
-		topLevelAwait: true,
-		},
 	devServer: {
 		historyApiFallback: true,
 		static: paths.build,

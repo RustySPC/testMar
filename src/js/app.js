@@ -12,7 +12,7 @@
 */
 
 // Включить/выключить FLS (Full Logging System) (в работе)
-window['FLS'] = true;
+// window['FLS'] = true;
 
 // Подключение основного файла стилей
 import "../scss/style.scss";
@@ -24,7 +24,7 @@ import * as flsFunctions from "./files/functions.js";
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
 /* (i) необходимо для корректного отображения webp из css  */
-flsFunctions.isWebp();
+// flsFunctions.isWebp();
 /* Добавление класса touch для HTML если браузер мобильный */
 // flsFunctions.addTouchClass();
 /* Добавление loaded для HTML после полной загрузки страницы */
@@ -60,7 +60,7 @@ flsFunctions.fullVHfix();
 Документация по работе в шаблоне:
 Сниппет (HTML): pl
 */
-// import './libs/popup.js'
+import './libs/popup.js'
 
 /*
 Модуль параллакса мышью
@@ -75,10 +75,14 @@ flsFunctions.fullVHfix();
 import * as flsForms from "./files/forms/forms.js";
 
 /* Работа с полями формы: добавление классов, работа с placeholder. */
-// flsForms.formFieldsInit();
+flsForms.formFieldsInit();
+
+/* Работа с полями для телфона. */
+flsForms.phoneValidate();
+
 
 /* Oтправка формы со встроенной валидацией полей. false - отключит валидацию */
-// flsForms.formSubmit(true);
+flsForms.formSubmit(true);
 
 /* Модуль формы "колличество" */
 // flsForms.formQuantity();

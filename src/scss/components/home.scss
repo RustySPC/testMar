@@ -30,7 +30,7 @@
 			z-index: 2;
 			pointer-events: none;
 			@media (max-width: $mobile) {
-				height: 20%;
+				height: 10%;
 			}
 		}
 	}
@@ -46,6 +46,7 @@
 		img {
 			width: 100%;
 			height: 100%;
+			background: transparent;
 			object-fit: cover;
 		}
 	}
@@ -93,31 +94,27 @@
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	padding-bottom: 9%;
+	padding: 0 rem(math.div($containerPadding, 2)) 9%;
+
+	@media (max-width: em(1799.98)) {
+		padding: 0 rem(50) 9%;
+	}
+	@media (max-width: em(1449.98)) {
+		padding: 0 rem(25) 9%;
+	}
 
 	@media (max-width: $mobile) {
 		padding-top: rem(15);
 		top: 0;
+		display: flex;
+
 		@media (max-width: $mobile) {
 			padding-top: rem(78);
 		}
 		bottom: auto;
 	}
+
 	z-index: 2;
-	// .pagination__container
-
-	&__container {
-	}
-
-	// .pagination__list
-
-	&__list {
-		@media (max-width: $mobile) {
-			display: flex;
-		}
-	}
-
-	// .pagination__item
 
 	&__item {
 		font-size: 14px;
@@ -187,9 +184,9 @@
 		}
 	}
 
-	// .cards__column
+	// .cards__article
 
-	&__column {
+	&__article {
 		display: flex;
 		flex-direction: column;
 	}
@@ -198,7 +195,9 @@
 
 	&__image {
 		width: 100%;
+		height: rem(200);
 		img {
+			background: var(--dark);
 			width: 100%;
 		}
 	}
@@ -207,7 +206,7 @@
 
 	&__content {
 		flex: 1 1 auto;
-		color: #171717;
+		color: var(--black);
 		background: #fff;
 		display: flex;
 		flex-direction: column;
@@ -234,7 +233,7 @@
 	// .cards__info
 
 	&__info {
-		color: #171717;
+		color: var(--black);
 		font-size: rem(16);
 		line-height: math.div(26, 14);
 	}
@@ -271,18 +270,18 @@
 	}
 }
 
-.btn-black {
+.btn-dark {
 	// .btn-black__link
 	color: #fff;
 	font-weight: 600;
 	font-size: rem(14);
 	line-height: math.div(18, 14);
 	font-family: "Mulish";
-	&__link {
+	.btn__link {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: #171717;
+		background: var(--black);
 		padding: rem(16) rem(70);
 		position: relative;
 		z-index: 0;
@@ -298,7 +297,7 @@
 			content: "";
 			height: 100%;
 			width: rem(0);
-			background: radial-gradient(circle, rgb(43, 43, 43) 35%, rgba(255, 255, 255, 0) 100%);
+			background: rgb(43, 43, 43);
 			position: absolute;
 			top: 0;
 			transition: all 0.3s ease 0s;

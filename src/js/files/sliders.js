@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation, EffectFade, Pagination, Autoplay} from 'swiper';
+import Swiper, {EffectFade, Pagination, Autoplay} from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -27,7 +27,7 @@ import "../../scss/base/swiper.scss";
 // swiper главному блоку, swiper-wrapper оболочке, swiper-slide для слайдов
 function bildSliders() {
 	//BildSlider
-	let sliders = document.querySelectorAll('[class*="__swiper"]:not(.swiper-wrapper)');
+	const sliders = document.querySelectorAll('[class*="__swiper"]:not(.swiper-wrapper)');
 	if (sliders) {
 		sliders.forEach(slider => {
 			slider.parentElement.classList.add('swiper');
@@ -48,7 +48,7 @@ function initSliders() {
 
 	// Перечень слайдеров
 	if (document.querySelector('.swiper')) {
-		let mainSlider = new Swiper('.swiper', {
+		new Swiper('.swiper', {
 			// Подключаем модули слайдера
 			// для конкретного случая
 			modules: [EffectFade,Pagination,Autoplay],
@@ -71,12 +71,12 @@ function initSliders() {
 			//lazy: true,
 			// Dotts
 			pagination: {
-				el: '.pagination__list',
+				el: '.home__pagination',
 				clickable: true,
 				renderBullet: function (index, className) {
-					let array = document.querySelector('.pagination__list').dataset.pagg.split(',')
-					return array[index] !== undefined ? '<li class="' + className + " pagination__item" + '">' + ((array[index] != undefined) ? array[index] : '') + '</li>' : ''
-
+					const array = document.querySelector('.home__pagination').dataset.pagg.split(',')
+					return array[index] !== undefined ?
+						`<li class="${className} pagination__item">${array[index]}</li>` : ''
 				},
 			},
 			// Arrows
@@ -84,94 +84,17 @@ function initSliders() {
 				nextEl: '.about__more .more__item_next',
 				prevEl: '.about__more .more__item_prev',
 			},
-		
-			/*
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
-				on: {
-			// slideChange: () => {
-			// 	fraction.innerHTML = `<span>${sw1.realIndex + 1}</span>/${sw1.slides.length}`;
-			// 	// console.log(sw1.realIndex)
-			// 	let items = document.querySelectorAll('.hww__item')
-			// 	for (let index = 0; index < items.length; index++){
-			// 			const element = items[index];
-			// 			element.classList.remove('_active')
-			// 	}
-			// 	items[sw1.realIndex ].classList.add("_active")
-			// }
 
-			}
 		});
-		// const custolSliders = document.querySelectorAll('.swiper-pagg')
-		// if (custolSliders.length > 0) {
-		// 	for (let index = 0; index < custolSliders.length; index++) {
-		// 		const element = custolSliders[index];
-		// 		let items = element.querySelectorAll('.pagg-list > *');
-		// 		console.log(items);
-		// 		for (let index = 0; index < items.length; index++) {
-		// 			const element = items[index];
-		// 			element.addEventListener('click', () => {
-		// 				mainSlider.slideTo(index, 800)
-		// 			})
-		// 		}
-		// 	}
-		// }
+
 	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
-function initSlidersScroll() {
-	// Добавление классов слайдера
-	// при необходимости отключить
-	bildSliders();
 
-	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');
-	if (sliderScrollItems.length > 0) {
-		for (let index = 0; index < sliderScrollItems.length; index++) {
-			const sliderScrollItem = sliderScrollItems[index];
-			const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
-			const sliderScroll = new Swiper(sliderScrollItem, {
-				observer: true,
-				observeParents: true,
-				direction: 'vertical',
-				slidesPerView: 'auto',
-				freeMode: {
-					enabled: true,
-				},
-				scrollbar: {
-					el: sliderScrollBar,
-					draggable: true,
-					snapOnRelease: false
-				},
-				mousewheel: {
-					releaseOnEdges: true,
-				},
-			});
-			sliderScroll.scrollbar.updateSize();
-		}
-	}
-}
 
-window.addEventListener("load", function (e) {
+window.addEventListener("load", function () {
 	// Запуск инициализации слайдеров
 	initSliders();
 	// Запуск инициализации скролла на базе слайдера (по классу swiper_scroll)
-	//initSlidersScroll();
+
 });
