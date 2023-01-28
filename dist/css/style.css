@@ -1056,8 +1056,15 @@ body.popup-show::after {
     gap: 1.875rem 0.9375rem;
   }
 }
-.cards__loadmore {
-  margin: 3.75rem 0 0 0;
+.cards .loadmore-btn {
+  margin: 3.75rem auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadmore-btn {
+  margin: 3.75rem auto 0 auto !important;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -183,14 +183,19 @@
 			gap: rem(30) rem(15);
 		}
 	}
-	&__loadmore {
-		margin: rem(60) 0 0 0;
+	.loadmore-btn {
+		margin: rem(60) auto 0 auto;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 }
-
+.loadmore-btn {
+	margin: rem(60) auto 0 auto !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .btn-dark {
 	// .btn-black__link
 	color: #fff;
