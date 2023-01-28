@@ -3,7 +3,6 @@ flsStartTemplate/
 node_modules/
 package-lock.json
 .gitignore
-dist/
 version.json
 Source/
 undefined
