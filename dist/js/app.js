@@ -6930,11 +6930,12 @@
         '</div><div class="cards__btn btn btn-black"><a href="" class="btnBlack__link">Continue reading</a></div></div></div>'
       );
     }
-    window.addEventListener("load", function () {
-      setTimeout(function () {
-        document.documentElement.classList.add("loaded");
-      }, 0);
-    }),
+    (window.FLS = !0),
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.documentElement.classList.add("loaded");
+        }, 0);
+      }),
       (function () {
         let e = document.querySelector(".icon-menu");
         e &&

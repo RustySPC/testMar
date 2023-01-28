@@ -94,7 +94,7 @@
 	&__close {
 		position: absolute;
 		right: 3px;
-		top: 0;
+		top: 30px;
 		z-index: 2;
 		outline: none !important;
 		* {
@@ -220,6 +220,7 @@ body.popup-show::after {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
 }
 .popup__content {
 	visibility: hidden;
