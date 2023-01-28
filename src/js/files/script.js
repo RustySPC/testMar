@@ -28,28 +28,25 @@ if (loadMore) {
 }
 // Шаблон поста
 function sample(element) {
-	return '<div class="cards__article">' +
-		'<div class="cards__image">' +
+	return '<div class="card-item">' +
+		'<div class="card-item__image">' +
 		'<img src="' + element.image + '" alt="">' +
 		'</div>' +
-		'<div class="cards__content">' +
-		'<div class="cards__name">' +
+		'<div class="card-item__content">' +
+		'<div class="card-item__name">' +
 		'' + element.name + '' +
 		'</div>' +
-		'<div class="cards__info">' +
+		'<div class="card-item__info">' +
 		'' + element.info + '' +
 		'</div>' +
-		'<div class="cards__about">' +
+		'<div class="card-item__about">' +
 		'' + element.about + '' +
 		'</div>' +
-		'<div class="cards__data">' +
+		'<div class="card-item__data">' +
 		'' + element.data + '' +
 		'</div>' +
-		'<div class="cards__btn btn btn-black">' +
-		'<a href="" class="btnBlack__link">Continue reading</a>' +
-		'</div>'+
+		'<a href="" class="btn-dark card-item__btn">Continue reading</a>' +
 		'</div>' +
 	'</div>'
 }
-
 

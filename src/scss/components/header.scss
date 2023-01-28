@@ -195,8 +195,6 @@
 		@media (max-width: $mobile) {
 			display: flex;
 			width: 100%;
-			margin: 0px 0px 0px 0px;
-			padding: 0px 0px 0px 0px;
 			&:not(:last-child) {
 				margin-bottom: rem(6);
 			}
@@ -208,9 +206,6 @@
 				margin-left: 0;
 			}
 			.btn-yellow__link {
-			}
-			.btn-yellow__decor {
-				display: none;
 			}
 		}
 	}

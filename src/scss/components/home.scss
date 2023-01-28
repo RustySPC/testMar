@@ -56,7 +56,6 @@
 	&__container {
 		position: absolute;
 		// height: 100%;
-		padding-bottom: 9%;
 		bottom: 0;
 		left: 0;
 		z-index: 1;
@@ -72,6 +71,7 @@
 	&__row {
 		max-width: 100%;
 		width: rem(686);
+		padding-bottom: 9%;
 	}
 
 	// .home__title
@@ -183,13 +183,52 @@
 			gap: rem(30) rem(15);
 		}
 	}
-
-	// .cards__article
-
-	&__article {
+	&__loadmore {
+		margin: rem(60) 0 0 0;
 		display: flex;
-		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
+}
+
+.btn-dark {
+	// .btn-black__link
+	color: #fff;
+	font-weight: 600;
+	font-size: rem(14);
+	line-height: math.div(18, 14);
+	font-family: "Mulish";
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--black);
+	padding: rem(16) rem(70);
+	position: relative;
+	z-index: 0;
+	&:hover {
+		&::after {
+			content: "";
+			width: 100%;
+			right: 0;
+			left: auto;
+		}
+	}
+	&::after {
+		content: "";
+		height: 100%;
+		width: rem(0);
+		background: rgb(43, 43, 43);
+		position: absolute;
+		top: 0;
+		transition: all 0.3s ease 0s;
+		left: 0;
+		z-index: -1;
+	}
+}
+
+.card-item {
+	display: flex;
+	flex-direction: column;
 
 	// .cards__image
 
@@ -261,48 +300,5 @@
 
 	&__btn {
 		margin-top: 5px;
-	}
-	&__loadmore {
-		margin: rem(60) 0 0 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-}
-
-.btn-dark {
-	// .btn-black__link
-	color: #fff;
-	font-weight: 600;
-	font-size: rem(14);
-	line-height: math.div(18, 14);
-	font-family: "Mulish";
-	.btn__link {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: var(--black);
-		padding: rem(16) rem(70);
-		position: relative;
-		z-index: 0;
-		&:hover {
-			&::after {
-				content: "";
-				width: 100%;
-				right: 0;
-				left: auto;
-			}
-		}
-		&::after {
-			content: "";
-			height: 100%;
-			width: rem(0);
-			background: rgb(43, 43, 43);
-			position: absolute;
-			top: 0;
-			transition: all 0.3s ease 0s;
-			left: 0;
-			z-index: -1;
-		}
 	}
 }

@@ -6917,17 +6917,17 @@
     }
     function rn(e) {
       return (
-        '<div class="cards__article"><div class="cards__image"><img src="' +
+        '<div class="card-item"><div class="card-item__image"><img src="' +
         e.image +
-        '" alt=""></div><div class="cards__content"><div class="cards__name">' +
+        '" alt=""></div><div class="card-item__content"><div class="card-item__name">' +
         e.name +
-        '</div><div class="cards__info">' +
+        '</div><div class="card-item__info">' +
         e.info +
-        '</div><div class="cards__about">' +
+        '</div><div class="card-item__about">' +
         e.about +
-        '</div><div class="cards__data">' +
+        '</div><div class="card-item__data">' +
         e.data +
-        '</div><div class="cards__btn btn btn-black"><a href="" class="btnBlack__link">Continue reading</a></div></div></div>'
+        '</div><a href="" class="btn-dark card-item__btn">Continue reading</a></div></div>'
       );
     }
     (window.FLS = !0),
