@@ -680,8 +680,8 @@
       });
     }
     e.popup = new (class {
-      constructor(e) {
-        let t = {
+      constructor(t) {
+        let n = {
           logging: !0,
           init: !0,
           attributeOpenButton: "data-popup",
@@ -705,7 +705,32 @@
             beforeOpen: function () {},
             afterOpen: function () {},
             beforeClose: function () {},
-            afterClose: function () {},
+            afterClose: function (t) {
+              const n = document.querySelector(`${t.targetOpen.selector} form`);
+              n.reset(),
+                setTimeout(() => {
+                  let t = n.querySelectorAll("input,textarea");
+                  for (let e = 0; e < t.length; e++) {
+                    const n = t[e];
+                    n.parentElement.classList.remove("_form-focus"),
+                      n.classList.remove("_form-focus"),
+                      formValidate.removeError(n);
+                  }
+                  let s = n.querySelectorAll(".checkbox__input");
+                  if (s.length > 0)
+                    for (let e = 0; e < s.length; e++) {
+                      s[e].checked = !1;
+                    }
+                  if (e.select) {
+                    let t = n.querySelectorAll(".select");
+                    if (t.length)
+                      for (let n = 0; n < t.length; n++) {
+                        const s = t[n].querySelector("select");
+                        e.select.selectBuild(s);
+                      }
+                  }
+                }, 0);
+            },
           },
         };
         (this.isOpen = !1),
@@ -731,11 +756,11 @@
             '[tabindex]:not([tabindex^="-"])',
           ]),
           (this.options = {
+            ...n,
             ...t,
-            ...e,
-            classes: { ...t.classes, ...e?.classes },
-            hashSettings: { ...t.hashSettings, ...e?.hashSettings },
-            on: { ...t.on, ...e?.on },
+            classes: { ...n.classes, ...t?.classes },
+            hashSettings: { ...n.hashSettings, ...t?.hashSettings },
+            on: { ...n.on, ...t?.on },
           }),
           this.options.init && this.initPopups();
       }

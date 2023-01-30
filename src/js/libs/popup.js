@@ -44,7 +44,35 @@ class Popup {
 				beforeOpen: function () { },
 				afterOpen: function () { },
 				beforeClose: function () { },
-				afterClose: function () { },
+				afterClose: function (el) { 
+					const form = document.querySelector(`${el.targetOpen.selector} form`)
+					form.reset();
+						setTimeout(() => {
+							let inputs = form.querySelectorAll('input,textarea');
+							for (let index = 0; index < inputs.length; index++) {
+								const el = inputs[index];
+								el.parentElement.classList.remove('_form-focus');
+								el.classList.remove('_form-focus');
+								formValidate.removeError(el);
+							}
+							let checkboxes = form.querySelectorAll('.checkbox__input');
+							if (checkboxes.length > 0) {
+								for (let index = 0; index < checkboxes.length; index++) {
+									const checkbox = checkboxes[index];
+									checkbox.checked = false;
+								}
+							}
+							if (flsModules.select) {
+								let selects = form.querySelectorAll('.select');
+								if (selects.length) {
+									for (let index = 0; index < selects.length; index++) {
+										const select = selects[index].querySelector('select');
+										flsModules.select.selectBuild(select);
+									}
+								}
+							}
+						}, 0);
+				},
 			},
 		}
 		this.isOpen = false;
